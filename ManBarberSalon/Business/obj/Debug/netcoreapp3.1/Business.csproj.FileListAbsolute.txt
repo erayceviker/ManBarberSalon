@@ -1,0 +1,17 @@
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\bin\Debug\netcoreapp3.1\Business.deps.json
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\bin\Debug\netcoreapp3.1\Business.dll
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\bin\Debug\netcoreapp3.1\Business.pdb
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\obj\Debug\netcoreapp3.1\Business.csproj.AssemblyReference.cache
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\obj\Debug\netcoreapp3.1\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfoInputs.cache
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfo.cs
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\obj\Debug\netcoreapp3.1\Business.csproj.CoreCompileInputs.cache
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\obj\Debug\netcoreapp3.1\Business.dll
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\obj\Debug\netcoreapp3.1\Business.pdb
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\bin\Debug\netcoreapp3.1\Core.dll
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\bin\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\bin\Debug\netcoreapp3.1\Core.pdb
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\erayc\Desktop\Code Archive\Projeler\ManBarberSalon\Business\obj\Debug\netcoreapp3.1\Business.csproj.CopyComplete

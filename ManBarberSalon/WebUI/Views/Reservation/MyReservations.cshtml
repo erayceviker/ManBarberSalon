@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "ReservationLayout";
+    ViewData["Title"] = "Randevularım";
+}
+
+@model ReservationDetailListViewModel
+
+
+<div class="inner-banner" id="home">
+    <div class="inner-banner-overlay">
+        <div class="container">
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumb-agile">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Randevularım</li>
+        </ol>
+    </div>
+</div>
+
+
+@{
+    int count = 1;
+}
+
+<div class="container table-responsive" style="padding-top: 50px;">
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Personel</th>
+                <th>Yapılacak iş</th>
+                <th>Tarih</th>
+                <th>Saat</th>
+                <th>Durum</th>
+                <th>İptal Edilme Tarihi</th>
+                <th>İptal et</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var details in Model.ReservationDetails)
+            {
+                <tr>
+                    <td>@count</td>
+                    <td>@details.EmployeeFirstName @details.EmployeeLastName</td>
+                    <td>@details.Menu</td>
+                    <td>@details.Date</td>
+                    <td>@details.Time</td>
+                    @if (details.StatusId == 1)
+                    {
+                        <td class="table-success">@details.Status</td>
+                        <td></td>
+                        <td>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" onclick="cancelreservationmodelshow(event)" data-reservation-id="@details.ReservationId">
+                                İptal Et
+                            </button>
+                        </td>
+                    }
+                    else
+                    {
+                        <td class="table-danger">@details.Status</td>
+                        <td>@details.CanceledDate.Value.ToString("g")</td>
+                        <td></td>
+                    }
+                </tr>
+                count++;
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="cancelreservation" tabindex="-1" role="dialog" aria-labelledby="cancelreservationlabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form asp-action="CancelReservation" asp-controller="Reservation" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cancelreservationlabel">Randevu İptal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Randevuyu iptal etmek üzeresiniz emin misiniz ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button name="reservationId" id="selectedreservationId" type="submit" class="btn btn-primary">İptal Et</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+                
+<script type="text/javascript">
+
+    function cancelreservationmodelshow(event) {
+
+        $('#selectedreservationId').val($(event.target).data('reservation-id'));
+        $('#cancelreservation').modal('show');
+    }
+</script>

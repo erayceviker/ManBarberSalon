@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "NG5s6Sf9r2P4EUYH0XzY7+30JfheeTtWv+vxARiulRiEa8afJnA2VN2VbTBKEJJ2j7+JzKdJ9P7qcNrHSPsUdw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\erayc\\Desktop\\Code Archive\\Projeler\\ManBarberSalon\\Core\\Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.26\\microsoft.entityframeworkcore.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.26\\microsoft.entityframeworkcore.abstractions.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.26\\microsoft.entityframeworkcore.analyzers.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.26\\microsoft.extensions.caching.abstractions.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.26\\microsoft.extensions.caching.memory.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.26\\microsoft.extensions.configuration.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.26\\microsoft.extensions.configuration.abstractions.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.26\\microsoft.extensions.configuration.binder.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.26\\microsoft.extensions.dependencyinjection.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.26\\microsoft.extensions.dependencyinjection.abstractions.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.logging\\3.1.26\\microsoft.extensions.logging.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.26\\microsoft.extensions.logging.abstractions.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.options\\3.1.26\\microsoft.extensions.options.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.26\\microsoft.extensions.primitives.3.1.26.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
+    "C:\\Users\\erayc\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

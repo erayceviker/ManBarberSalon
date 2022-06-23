@@ -1,0 +1,95 @@
+﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model SearchReservationViewModel
+@{
+    Layout = "ReservationLayout";
+    ViewData["Title"] = "Randevu Ara";
+}
+
+@section Css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css" />
+}
+
+
+
+<div class="inner-banner" id="home">
+    <div class="inner-banner-overlay">
+        <div class="container">
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumb-agile">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Randevu Ara</li>
+        </ol>
+    </div>
+</div>
+
+
+<div style="margin-top: 50px;" class="container">
+    <form asp-controller="Reservation" asp-action="MakeReservations" method="post">
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    <label for="">Personel Seçiniz</label>
+                   <select asp-for="Employee.Id" class="form-control custom-select" id="emloyeeId">
+                        <option value="" selected>Seçiniz</option>
+                        @foreach (var employee in Model.Employees)
+                        {
+                            <option value="@employee.Id">@employee.FirstName @employee.LastName</option>
+
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+                    <label for="appointmentSelectedDate">Tarih Seçiniz</label>
+                    <input asp-for="Date" class="form-control" type="text" id="appointmentSelectedDate" value="" />
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" onclick="return submitReservation()" value="Randevu Ara" class="btn btn-primary btn-group-sm float-right"/>
+    </form>
+</div>
+
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.tr.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#appointmentSelectedDate').datepicker({
+                format: "dd.mm.yyyy",
+                startDate: "-1d",
+                endDate: "+20d",
+                todayBtn: "linked",
+                clearBtn: true,
+                language: "tr",
+                daysOfWeekDisabled: "0",
+                autoclose: true,
+                todayHighlight: true,
+            });
+
+        });
+
+        function submitReservation() {
+            var employeeId = $("#emloyeeId option:selected").val();
+            var appointmentSelectedDate = $("#appointmentSelectedDate").val();
+            if (employeeId != "" && appointmentSelectedDate != "") {
+                return true;
+            } else {
+                confirm("Lütfen gerekli alanları doldurunuz.");
+                return false;
+            }
+        }
+    </script>
+}

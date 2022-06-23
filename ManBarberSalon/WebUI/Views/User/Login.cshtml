@@ -1,0 +1,42 @@
+﻿@using System.Net.Http
+@model WebUI.Models.LoginViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Giriş Yap";
+    Layout = null;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/register.css" />
+    <link rel="stylesheet" href="~/css/alert.css" />
+</head>
+
+@{
+    if(TempData["message"] != null)
+    {
+        <div class="alert  alert-success">
+            @TempData["message"]
+        </div>
+    }
+}
+<div class="container " id="container">
+    <div class="form-container sign-in-container">
+        <form asp-controller="User" asp-action="Login" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <h1>Giriş Yap</h1>
+            <input type="text" asp-for="Email" name="Email" placeholder="Email"/>
+            <input type="password" asp-for="Password" name="Password" placeholder="Şifre"/>
+            <button type="submit">Giriş Yap</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h1>Merhaba!</h1>
+                <p>Kişisel bilgilerinizi girin ve randevu alın </p>
+                <button class="ghost" id="signUp"  onclick="location='/User/SignIn'">Kayıt Ol</button>
+            </div>
+        </div>
+    </div>
+</div>

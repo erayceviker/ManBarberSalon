@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav class="py-md-4 py-3 d-lg-flex">
+            <div id="logo">
+                <h1> <a asp-area="" asp-controller="Home" asp-action="Index"><span class="fa fa-scissors"></span> Erkek berber salonu</a></h1>
+            </div>
+            <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+            <input type="checkbox" id="drop" />
+        </nav>
+    </div>
+</header>
+
+
+@RenderBody()
+
+<a href="#home" class="move-top text-center"></a>
+<div class="copyright py-3 text-center">
+    <p>
+        © 2022 Bütün hakları saklıdır| Design by <a href="http://w3layouts.com/" target="=_blank">
+            W3layouts
+        </a>
+    </p>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/jquery/"></script>
+<script src="~/lib/jquery-validate/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+@RenderSection("Scripts", required: false)
+</body>
+</html>

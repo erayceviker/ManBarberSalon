@@ -1,0 +1,35 @@
+﻿@model WebUI.Models.AppUserViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Kayıt Ol";
+    Layout = null;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/register.css" />
+    <link rel="stylesheet" href="~/css/alert.css" />
+</head>
+<div class="text-danger" asp-validation-summary="All"style="position:static;"></div>
+<div class="container right-panel-active" id="container">
+    <div class="form-container sign-up-container">
+        <form asp-controller="User" asp-action="SignIn" method="post">
+            <h1>Hesap Oluştur</h1>
+            <input type="text" asp-for="FirstName" placeholder="Müşteri Adı"/>
+            <input type="text" asp-for="LastName" placeholder="Müşteri Soyadı"/>
+            <input type="email" asp-for="Email" placeholder="Email"/>
+            <input type="text" asp-for="PhoneNumber" placeholder="Telefon Numarası"/>
+            <input type="password" asp-for="Password" placeholder="Şifre"/>
+            <button type="submit">Kayıt ol</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Tekrardan Hoşgeldin!</h1>
+                <p>Randevu almak için lütfen giriş yapın</p>
+                <button class="ghost" id="signIn" onclick="location = '/User/Login'">Giriş Yap</button>
+            </div>
+        </div>
+    </div>
+</div>

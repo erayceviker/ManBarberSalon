@@ -1,0 +1,151 @@
+﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model MakeReservationViewModel
+@{
+    Layout = "ReservationLayout";
+    ViewData["Title"] = "Randevu Al";
+}
+
+@section Css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css" />
+}
+
+<div class="inner-banner" id="home">
+    <div class="inner-banner-overlay">
+        <div class="container">
+        </div>
+    </div>
+</div>
+
+
+<div class="breadcrumb-agile">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Randevu Al</li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="container" style="margin-top: 50px;">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Yapılacak işlemi Seçiniz</label>
+                <select class="form-control custom-select" id="appointmentSelectedMenu">
+                    <option value="" selected>Seçiniz</option>
+                    @foreach (var menu in Model.Menus)
+                    {
+                        <option value="@menu.Id">@menu.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            @foreach (var time in Model.Times)
+            {
+                if(Model.DisabledTimes.Contains(time.Name))
+                {
+                    <button type="button" class="btn btn-primary" disabled>@time.Name</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-primary" data-toggle="modal" onclick="appointmentModalShow(event)" data-time-id="@time.Id">@time.Name</button>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="appointment" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form asp-controller="Reservation" asp-action="Complete" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Randevu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Employee">Personel</label>
+                        <input asp-for="Employee.Id" type="hidden" class="form-control" value="@Model.Employee.Id">
+                        <input type="text" class="form-control" value="@Model.Employee.FirstName @Model.Employee.LastName" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentMenuText">İşlem</label>
+                        <input asp-for="Menu.Id" type="hidden" class="form-control" id="appointmentMenuId">
+                        <input type="text" class="form-control" id="appointmentMenuText" disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentDate">Tarih</label>
+                        <input asp-for="Date" type="hidden" class="form-control" value="@Model.Date">
+                        <input type="text" class="form-control" id="appointmentDate" disabled="" value="@Model.Date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentTimeText">Saat</label>
+                        <input asp-for="TimeId" type="hidden" class="form-control" id="appointmentTimeId">
+                        <input type="text" class="form-control" id="appointmentTimeText" disabled>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary">Randevu Onayla</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.tr.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#appointmentSelectedDate').datepicker({
+                format: "dd.mm.yyyy",
+                startDate: "-1d",
+                endDate: "+20d",
+                todayBtn: "linked",
+                clearBtn: true,
+                language: "tr",
+                daysOfWeekDisabled: "0",
+                autoclose: true,
+                todayHighlight: true,
+            });
+
+        });
+
+        function appointmentModalShow(event) {
+            var appointmentSelectedMenu = $("#appointmentSelectedMenu option:selected").val();
+
+            if (appointmentSelectedMenu != "") {
+                $('#appointmentMenuText').val($("#appointmentSelectedMenu option:selected").text());
+                $('#appointmentMenuId').val($("#appointmentSelectedMenu option:selected").val());
+                $('#appointmentTimeId').val($(event.target).data('time-id'));
+                $('#appointmentTimeText').val($(event.target).text());
+                $('#appointment').modal('show');
+            } else {
+                confirm("Lütfen gerekli alanları doldurunuz.");
+                $('#appointment').modal('hide');
+            }
+        }
+    </script>
+}
